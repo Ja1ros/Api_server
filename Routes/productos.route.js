@@ -7,7 +7,6 @@ const {
   ProductosGetPorCategoria,
   ProductosPost,
   ProductosPut,
- // ProductosScript,
   ProductosGetPag,
   ProductosGetBuscar,
   ProductosGetFac,
@@ -48,7 +47,5 @@ router.get("/Buscador/:id", ProductosGetID);
 router.post("/", validarJWT, rolesPermitidos("Admin", "User"), ProductosPost);
 
 router.put("/", validarJWT, rolesPermitidos("Admin", "User"), ProductosPut);
-
-//router.post("/ScriptSQL", ProductosScript);
 
 module.exports = router;

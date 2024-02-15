@@ -7,7 +7,6 @@ const {
   ClienteGet,
   ClientePost,
   ClientPut,
-  //ClientePostScript,
   ClienteGetFac
 } = require("../Controllers/clientesController");
 
@@ -72,11 +71,7 @@ router.post(
 );
 
 
-/*router.post(
-  //"/ScriptSql",
-  //ClientePostScript
-);
-*/
+
 router.put(
   "/",
   check("id", "Id obligatorio").not().isEmpty(),

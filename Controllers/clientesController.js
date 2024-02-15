@@ -44,56 +44,6 @@ const ClienteGetFac = async (req, res = response) => {
     return res.status(500).json(responseApi);
   }
 };
-/*
-const ClientePostScript = async (req, res = response) => {
-  let responseApi = new ResponseApi();
-
-  try {
-    for (let index = 0; index < 1000; index++) {
-      let cedula = "1900" + index;
-      let nombres = "Nombre " + index;
-      let apellidos = "Apellido " + index;
-      let email = "cliente" + index + "@uta.edu.ec";
-      let direccion = "Ambato";
-      let telefono = "0900" + index;
-      let pass = "123";
-      const salt = bcryptjs.genSaltSync();
-      let pss = bcryptjs.hashSync(pass, salt);
-
-
-
-      const create = await CreateClient(
-        cedula,
-        nombres,
-        apellidos,
-        telefono,
-        direccion,
-        email,
-        pss
-      );
-
-
-
-      if (create < 0) {
-        responseApi.status = 500;
-        responseApi.msg = "No se pudo guardar Revise";
-        return res.status(500).json(responseApi);
-      }
-
-      const clientCreate = await existCed(cedula);
-      const createRole = await SetUserRole(clientCreate[0].ID, 3);
-    }
-
-    responseApi.status = 200;
-    responseApi.msg = "Cliente Guardado";
-
-    return res.status(200).json(responseApi);
-  } catch (error) {
-    responseApi.status = 500;
-    responseApi.msg = error;
-    return res.status(500).json(responseApi);
-  }
-};*/
 
 const ClientePost = async (req, res = response) => {
   let responseApi = new ResponseApi();
@@ -228,6 +178,5 @@ module.exports = {
   ClienteGet,
   ClientePost,
   ClientPut,
-  //ClientePostScript,
   ClienteGetFac
 };

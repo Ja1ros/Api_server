@@ -18,7 +18,9 @@
     "jsonwebtoken": "^9.0.0",
     "mssql": "^9.0.1"
   },
-  "devDependencies": {},
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }

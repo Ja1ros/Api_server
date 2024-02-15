@@ -79,7 +79,7 @@ const CreateProduct = async (nombre, img, precio, peso, stock, codigo, categoria
     .input("precio", sql.Decimal(12,2), precio)
     .input("peso", sql.Decimal(12,4), peso)
     .input("stock", sql.Int, stock)
-    .input("codigo", sql.Int, codigo)
+    .input("codigo", sql.NVarChar, codigo)
     .input("categoria", sql.Int, categoria).query(`INSERT INTO [dbo].[Producto]
                         ([Nombre]
                         ,[ImgUrl]
@@ -113,7 +113,7 @@ const UpdateProduct = async (id, nombre, img, precio, peso, stock, estado, codig
     .input("peso", sql.Decimal(12,4), peso)
     .input("estado", sql.Int, estado)
     .input("stock", sql.Int, stock)
-    .input("codigo", sql.Int, codigo)
+    .input("codigo", sql.NVarChar, codigo)
     .input("categoria", sql.Int, categoria).query(`UPDATE [dbo].[Producto]
       SET [Nombre] =@nombre
          ,[ImgUrl] = @img
