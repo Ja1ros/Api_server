@@ -195,6 +195,8 @@ const ProductosPut = async (req, res = response) => {
   let responseApi = new ResponseApi();
   try {
     const { id, nombre, img, precio, peso, stock, estado, codigo, categoria } = req.body;
+
+    
     const create = await UpdateProduct(
       id,
       nombre,
