@@ -130,7 +130,6 @@ const UpdateProduct = async (id, nombre, img, precio, peso, stock, estado, codig
 
 module.exports = {
   Listar,
-
   ListarPorCategoria,
   CreateProduct,
   UpdateProduct,

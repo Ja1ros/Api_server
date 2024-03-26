@@ -29,6 +29,7 @@ const login = async (req, res = response) => {
     responseApi.msg = "Ok";
 
     const u = await UsuarioID(usuario.ID);
+    console.log(u)
     let user = u[0];
     responseApi.data = { user, token }; //si todo ok enviamos todo al servicio
     res.json(responseApi);
@@ -62,13 +63,12 @@ const loginCliente = async (req, res = response) => {
     }
     cliente.Contra = "";
     
-
     const token = await GenerarJWTClient(cliente.ID);
     responseApi.status = 200;
     responseApi.msg = "Ok";
     
     const c = await getClient(cliente.ID);
-  
+   // console.log(c)
     let client = c[0];
     responseApi.data = { client, token };
     res.json(responseApi);

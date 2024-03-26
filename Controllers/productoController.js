@@ -114,7 +114,6 @@ const ProductosGetBuscar = async (req, res = response) => {
   let responseApi = new ResponseApi();
   try {
     const { pag } = req.params;
-
     const { text} = req.body;
 console.log(text)
     if (pag - 1 < 0) {
@@ -140,8 +139,9 @@ console.log(text)
 const ProductosPost = async (req, res = response) => {
   let responseApi = new ResponseApi();
   try {
-    const { nombre, img, precio, peso, stock, codigo, categoria } = req.body;
-    const create = await CreateProduct(nombre, img, precio, peso, stock, codigo, categoria);
+    console.log(req.body);
+    const { Nombre, ImgUrl, Precio, Peso, Stock, Codigo, ID_CAT } = req.body;
+    const create = await CreateProduct(Nombre, ImgUrl, Precio, Peso, Stock, Codigo, ID_CAT);
     if (create < 0) {
       responseApi.status = 500;
       responseApi.msg = "No se pudo guardar Revise los datos";
