@@ -43,9 +43,9 @@ router.get(
 
 router.get("/categoria/:categoria", ProductosGetPorCategoria);
 router.get("/Buscador/:id", ProductosGetID);
-router.post("/", validarJWT, rolesPermitidos("Admin", "User"), ProductosPost);
+router.post("/", validarJWT, rolesPermitidos("Admin", "User", "Client"), ProductosPost);
 router.post("/mov", validarJWTClient, rolesPermitidos("Client"), ProductosPost);
-//router.put("/", validarJWT, rolesPermitidos("Admin", "User"), ProductosPut);
-router.put("/", validarJWT, rolesPermitidos("Admin", "User","Client"), ProductosPut);
+router.put("/", validarJWT, rolesPermitidos("Admin", "User", "Client"), ProductosPut);
+router.put("/mov", validarJWTClient, rolesPermitidos("Client"), ProductosPut);
 
 module.exports = router;
