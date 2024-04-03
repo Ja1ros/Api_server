@@ -6,6 +6,7 @@ const {
   ProductosGet,
   ProductosGetPorCategoria,
   ProductosPost,
+  ProductosPostU,
   ProductosPut,
   ProductosGetPag,
   ProductosGetBuscar,
@@ -43,8 +44,9 @@ router.get(
 
 router.get("/categoria/:categoria", ProductosGetPorCategoria);
 router.get("/Buscador/:id", ProductosGetID);
-router.post("/", validarJWT, rolesPermitidos("Admin", "User", "Client"), ProductosPost);
-router.post("/mov", validarJWTClient, rolesPermitidos("Client"), ProductosPost);
+router.post("/", validarJWT, rolesPermitidos("Admin", "User", "Client"), ProductosPostU);
+router.post("/mov", validarJWT, rolesPermitidos("Admin", "User"), ProductosPostU);
+router.post("/mov", validarJWTClient, rolesPermitidos("Admin", "User","Client"), ProductosPost);
 router.put("/", validarJWT, rolesPermitidos("Admin", "User", "Client"), ProductosPut);
 router.put("/mov", validarJWTClient, rolesPermitidos("Client"), ProductosPut);
 

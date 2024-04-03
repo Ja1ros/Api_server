@@ -68,7 +68,7 @@ const loginCliente = async (req, res = response) => {
     responseApi.msg = "Ok";
     
     const c = await getClient(cliente.ID);
-   // console.log(c)
+    console.log(c)
     let client = c[0];
     responseApi.data = { client, token };
     res.json(responseApi);

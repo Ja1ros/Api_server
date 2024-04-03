@@ -136,6 +136,28 @@ console.log(text)
   }
 };
 
+const ProductosPostU = async (req, res = response) => {
+  let responseApi = new ResponseApi();
+  try {
+    console.log(req.body);
+    const { nombre, Img, precio, peso, stock, codigo, categoria } = req.body;
+    const create = await CreateProduct(nombre, Img, precio, peso, stock, codigo, categoria);
+    if (create < 0) {
+      responseApi.status = 500;
+      responseApi.msg = "No se pudo guardar Revise los datos";
+      return res.status(500).json(responseApi);
+    }
+    responseApi.status = 200;
+    responseApi.msg = "Producto Guardado";
+
+    return res.status(200).json(responseApi);
+  } catch (error) {
+    responseApi.status = 500;
+    responseApi.msg = error;
+    return res.status(500).json(responseApi);
+  }
+};
+
 const ProductosPost = async (req, res = response) => {
   let responseApi = new ResponseApi();
   try {
@@ -228,6 +250,7 @@ module.exports = {
   ProductosGet,
   ProductosGetPorCategoria,
   ProductosPost,
+  ProductosPostU,
   ProductosPut,
   //ProductosScript,
   ProductosGetID,
